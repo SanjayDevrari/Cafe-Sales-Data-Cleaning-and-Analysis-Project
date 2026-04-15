@@ -65,3 +65,30 @@ print(df.duplicated().sum())
 # 4️⃣ Remove Duplicate Records
 # ---------------------------------------------------------
 df.drop_duplicates(inplace=True)
+
+# ---------------------------------------------------------
+# Data Cleaning - Fixing Data Types
+# ---------------------------------------------------------
+# In this step, we convert columns to their correct data types
+# so they can be used properly in analysis and calculations.
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# 1️⃣ Convert 'Quantity' column to numeric
+# ---------------------------------------------------------
+df['Quantity'] = pd.to_numeric(df['Quantity'], errors="coerce")
+
+# ---------------------------------------------------------
+# 2️⃣ Convert 'Price Per Unit' column to numeric
+# ---------------------------------------------------------
+df['Price Per Unit'] = pd.to_numeric(df['Price Per Unit'], errors="coerce")
+
+# ---------------------------------------------------------
+# 3️⃣ Convert 'Total Spent' column to numeric
+# ---------------------------------------------------------
+df['Total Spent'] = pd.to_numeric(df['Total Spent'], errors="coerce")
+
+# ---------------------------------------------------------
+# 4️⃣ Convert 'Transaction Date' column to datetime
+# ---------------------------------------------------------
+df['Transaction Date'] = pd.to_datetime(df['Transaction Date'], errors="coerce")
