@@ -92,3 +92,30 @@ df['Total Spent'] = pd.to_numeric(df['Total Spent'], errors="coerce")
 # 4️⃣ Convert 'Transaction Date' column to datetime
 # ---------------------------------------------------------
 df['Transaction Date'] = pd.to_datetime(df['Transaction Date'], errors="coerce")
+
+# ---------------------------------------------------------
+# Handling Missing Values
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# 1️⃣ Fill Missing Values in Categorical Columns
+# ---------------------------------------------------------
+
+df['Item'] = df['Item'].fillna("UNKNOWN")
+
+df['Payment Method'] = df['Payment Method'].fillna("UNKNOWN")
+
+df['Location'] = df['Location'].fillna("UNKNOWN")
+
+# ---------------------------------------------------------
+# 2️⃣ Fill Missing Values in Numerical Columns
+# ---------------------------------------------------------
+
+# Fill missing values in 'Quantity' with its median
+df['Quantity'] = df['Quantity'].fillna(df['Quantity'].median())
+
+# Fill missing values in 'Price Per Unit' with its median
+df['Price Per Unit'] = df['Price Per Unit'].fillna(df['Price Per Unit'].median())
+
+# Fill missing values in 'Total Spent' with its median
+df['Total Spent'] = df['Total Spent'].fillna(df['Total Spent'].median())
