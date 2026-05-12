@@ -59,3 +59,52 @@ plt.xticks(rotation=45)
 
 # Display the chart
 plt.show()
+
+# Count the number of transactions for each payment method
+payment_count = df['Payment Method'].value_counts()
+
+# Create a pie chart for payment methods
+plt.pie(
+    payment_count,                    # Data values
+    labels=payment_count.index,      # Labels for each section
+    autopct='%1.1f%%'                # Show percentage with 1 decimal place
+)
+
+# Save the pie chart as a PNG image with high quality
+plt.savefig("payment_method_pie_chart.png", dpi=300)
+
+# Download the saved pie chart file in Google Colab
+files.download("payment_method_pie_chart.png")
+
+# Display the pie chart
+plt.show()
+
+
+# ---------------- SALES BY LOCATION ---------------- #
+
+# Count total sales for each location
+sales_area = df['Location'].value_counts()
+
+# Print sales count by location
+print(sales_area)
+
+# Create a bar chart for sales by location
+plt.bar(sales_area.index, sales_area.values)
+
+# Set chart title
+plt.title("Sales by Location")
+
+# Set label for X-axis
+plt.xlabel("Location")
+
+# Set label for Y-axis
+plt.ylabel("Sales")
+
+# Save the bar chart as a PNG image
+plt.savefig("sales_by_location_bar_chart.png", dpi=300)
+
+# Download the saved bar chart file in Google Colab
+files.download("sales_by_location_bar_chart.png")
+
+# Display the bar chart
+plt.show()
