@@ -108,3 +108,39 @@ files.download("sales_by_location_bar_chart.png")
 
 # Display the bar chart
 plt.show()
+
+# Convert the 'Transaction Date' column into datetime format
+df['Transaction Date'] = pd.to_datetime(df['Transaction Date'])
+
+# Group data by Transaction Date and calculate total sales amount
+Sale_Trend = df.groupby('Transaction Date')['Total Spent'].sum()
+
+# Print total sales for each date
+print(Sale_Trend)
+
+# Create a line chart for sales trend over time
+plt.plot(Sale_Trend.index, Sale_Trend.values)
+
+# Set chart title
+plt.title('Sales Trend Over Time')
+
+# Set label for X-axis
+plt.xlabel('Date')
+
+# Set label for Y-axis
+plt.ylabel('Total Sales')
+
+# Rotate date labels for better readability
+plt.xticks(rotation=45)
+
+# Add grid lines to the chart
+plt.grid(True)
+
+# Save the line chart as a PNG image
+plt.savefig("sales_trend_line_chart.png", dpi=300)
+
+# Download the saved chart file in Google Colab
+files.download("sales_trend_line_chart.png")
+
+# Display the line chart
+plt.show()
