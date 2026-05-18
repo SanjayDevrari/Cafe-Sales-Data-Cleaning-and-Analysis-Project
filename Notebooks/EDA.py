@@ -144,3 +144,30 @@ files.download("sales_trend_line_chart.png")
 
 # Display the line chart
 plt.show()
+
+# Select the 'Price Per Unit' column from the dataset
+price = df['Price Per Unit']
+
+# Select the 'Quantity' column from the dataset
+quantity = df['Quantity']
+
+# Create a scatter plot between price and quantity
+plt.scatter(price, quantity)
+
+# Set label for X-axis
+plt.xlabel("Price Per Unit")
+
+# Set label for Y-axis
+plt.ylabel("Quantity")
+
+# Set chart title
+plt.title("Price vs Quantity")
+
+# Save the scatter plot as a PNG image
+plt.savefig("price_quantity_scatter_chart.png", dpi=300)
+
+# Download the saved chart file in Google Colab
+files.download("price_quantity_scatter_chart.png")
+
+# Display the scatter plot
+plt.show()
